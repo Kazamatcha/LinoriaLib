@@ -37,7 +37,7 @@ local Library = {
 	FontColor = Color3.fromRGB(255, 255, 255);
 	MainColor = Color3.fromRGB(28, 28, 28);
 	BackgroundColor = Color3.fromRGB(20, 20, 20);
-	AccentColor = Color3.fromRGB(0, 85, 255);
+	AccentColor = Color3.fromRGB((228, 174, 174));
 	OutlineColor = Color3.fromRGB(50, 50, 50);
 	RiskColor = Color3.fromRGB(255, 50, 50),
 
@@ -49,7 +49,7 @@ local Library = {
 
 	NotificationStyle = {
 		Transparency = 0;
-		BarSide = "Left"; -- { "Left", "Right", "Bottom", "Top" };
+		BarSide = "Top"; -- { "Left", "Right", "Bottom", "Top" };
 	};
 
 	KeypickerListVisible = true;
@@ -3407,7 +3407,7 @@ do
 		--Transparency = transparency;
 		--BackgroundColor3 = main;
 		BorderColor3 = Color3.new(0, 0, 0);
-		Position = UDim2.new(0, 100, 0, 10);
+		Position = UDim2.new(0, 50, 0, 63);
 		--Size = UDim2.new(0, 0, 0, YSize);
 		ClipsDescendants = true;
 		ZIndex = 100;
