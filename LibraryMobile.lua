@@ -235,7 +235,7 @@ local Library = {
     MainColor = Color3.fromRGB(28, 28, 28);
     BackgroundColor = Color3.fromRGB(20, 20, 20);
 
-  	AccentColor = Color3.fromRGB(228, 174, 174);
+    AccentColor = Color3.fromRGB(0, 85, 255);
     DisabledAccentColor = Color3.fromRGB(142, 142, 142);
 
     OutlineColor = Color3.fromRGB(50, 50, 50);
@@ -246,7 +246,7 @@ local Library = {
     RiskColor = Color3.fromRGB(255, 50, 50);
 
     Black = Color3.new(0, 0, 0);
-    Font = Enum.Font.SourceSansBold,
+    Font = Enum.Font.Code,
 
     -- frames --
     OpenedFrames = {};
@@ -6590,35 +6590,14 @@ function Library:CreateWindow(...)
         BorderColor3 = "AccentColor";
     })
 
-  	local WindowLabel = Library:CreateLabel({
-  		Position = UDim2.new(0, 0, 0, 0);
-  		Size = UDim2.new(1, 0, 0, 25);
-  		Text = Config.Title or '';
-  		TextXAlignment = Enum.TextXAlignment.Center;
-  		ZIndex = 1;
-  		Parent = Inner;
-  	});
-  	local VersionLabel = Library:CreateLabel({
-  		Position = UDim2.new(0, -8, 0, 0);
-  		Size = UDim2.new(1, 0, 0, 25);
-  		Text = Config.Version or 'Premium';
-  		RichText = true;
-  		TextXAlignment = Enum.TextXAlignment.Right;
-  		ZIndex = 1;
-  		Parent = Inner;
-  	});
-  	task.defer(function()
-  		WindowLabel.Font = Enum.Font.SourceSansBold
-  		VersionLabel.Font = Enum.Font.SourceSans
-          RunService.RenderStepped:Connect(function()
-              if VersionLabel.TextColor3 ~= Color3.fromRGB(255, 0, 0) then
-                  VersionLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
-              end
-              if WindowLabel.TextColor3 ~= Color3.fromRGB(255, 255, 255) then
-                  WindowLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-              end
-          end)
-  	end)
+    local WindowLabel = Library:CreateLabel({
+        Position = UDim2.new(0, 7, 0, 0);
+        Size = UDim2.new(0, 0, 0, 25);
+        Text = WindowInfo.Title or "";
+        TextXAlignment = Enum.TextXAlignment.Left;
+        ZIndex = 1;
+        Parent = Inner;
+    })
 
     local MainSectionOuter = Library:Create("Frame", {
         BackgroundColor3 = Library.BackgroundColor;
