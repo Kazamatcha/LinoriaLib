@@ -27,7 +27,30 @@ local Options = {};
 
 getgenv().Toggles = Toggles;
 getgenv().Options = Options;
+local Config_Image = getgenv().Config_Image or {
+    Enabled = false,
+    Custom = 'angel.jpg',
+    Transparency = 0.5,
+    TabTransparency = 0.8,
+    ScaleType = Enum.ScaleType.Stretch
+}
 
+if Config_Image.Enabled then
+    if not isfolder("BunnyPremium") then
+        makefolder("BunnyPremium")
+    end
+    if not isfolder("BunnyPremium/Images") then
+        makefolder("BunnyPremium/Images")
+    end
+
+    local image_path = "BunnyPremium/Images/" .. Config_Image.Custom
+    local default_image = "BunnyPremium/Images/angel.jpg"  -- Default if Custom is angel.jpg
+
+    if Config_Image.Custom == 'angel.jpg' and not isfile(default_image) then
+        local image_data = game:HttpGet("https://raw.githubusercontent.com/Kazamatcha/vhuyprivate/refs/heads/main/angel.jpg")
+        writefile(default_image, image_data)
+    end
+end
 local Library = {
 	Registry = {};
 	RegistryMap = {};
@@ -42,7 +65,7 @@ local Library = {
 	RiskColor = Color3.fromRGB(255, 50, 50),
 
 	Black = Color3.new(0, 0, 0);
-	Font = Enum.Font.Code,
+	Font = Enum.Font.SourceSansBold,
 
 	OpenedFrames = {};
 	DependencyBoxes = {};
@@ -3781,17 +3804,27 @@ function Library:CreateWindow(...)
 		ZIndex = 1;
 		Parent = Inner;
 	});
-
 	local VersionLabel = Library:CreateLabel({
 		Position = UDim2.new(0, -8, 0, 0);
 		Size = UDim2.new(1, 0, 0, 25);
-		Text = Config.Version or '';
+		Text = Config.Version or 'Premium';
 		RichText = true;
 		TextXAlignment = Enum.TextXAlignment.Right;
 		ZIndex = 1;
 		Parent = Inner;
 	});
-
+	task.defer(function()
+		WindowLabel.Font = Enum.Font.SourceSansBold
+		VersionLabel.Font = Enum.Font.SourceSans
+        RunService.RenderStepped:Connect(function()
+            if VersionLabel.TextColor3 ~= Color3.fromRGB(255, 0, 0) then
+                VersionLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+            end
+            if WindowLabel.TextColor3 ~= Color3.fromRGB(255, 255, 255) then
+                WindowLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            end
+        end)
+	end)
 	local MainSectionOuter = Library:Create('Frame', {
 		BackgroundColor3 = Library.BackgroundColor;
 		BorderColor3 = Library.OutlineColor;
