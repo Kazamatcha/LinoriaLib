@@ -28,7 +28,7 @@ local Options = {};
 getgenv().Toggles = Toggles;
 getgenv().Options = Options;
 local Config_Image = getgenv().Config_Image or {
-    Enabled = false,
+    Enabled = true,
     Custom = 'angel.jpg',
     Transparency = 0.5,
     TabTransparency = 0.8,
@@ -3790,7 +3790,22 @@ function Library:CreateWindow(...)
 		ZIndex = 1;
 		Parent = Outer;
 	});
-
+	local GlowImage = Library:Create('ImageLabel', {
+	    BackgroundTransparency = 1, 
+	    Image = "rbxassetid://5028857084",  
+	    ImageColor3 = Library.AccentColor, 
+	    ScaleType = Enum.ScaleType.Slice, 
+	    SliceCenter = Rect.new(24, 24, 252, 252), 
+	    Size = UDim2.new(1, 32, 1, 34), 
+	    Position = UDim2.new(0, -16, 0, -18), 
+	    ZIndex = 0,  
+	    Parent = Outer,
+	});
+	
+	-- Registry để update màu glow theo AccentColor động
+	Library:AddToRegistry(GlowImage, {
+	    ImageColor3 = 'AccentColor',  -- Bind với Library.AccentColor
+	});
 	Library:AddToRegistry(Inner, {
 		BackgroundColor3 = 'MainColor';
 		BorderColor3 = 'AccentColor';
@@ -3876,8 +3891,6 @@ function Library:CreateWindow(...)
 		ZIndex = 2;
 		Parent = MainSectionInner;
 	});
-
-
 	Library:AddToRegistry(TabContainer, {
 		BackgroundColor3 = 'MainColor';
 		BorderColor3 = 'OutlineColor';
