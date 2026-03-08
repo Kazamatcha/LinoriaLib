@@ -3804,7 +3804,7 @@ function Library:CreateWindow(...)
 	    ScaleType = Enum.ScaleType.Slice, 
 	    SliceCenter = Rect.new(24, 24, 252, 252), 
 	    Size = UDim2.new(1, 31, 1, 31), 
-	    Position = UDim2.new(0, -16, 0, -17), 
+	    Position = UDim2.new(0, -16, 0, -16), 
 	    ZIndex = 0,  
 	    Parent = Outer,
 	});
