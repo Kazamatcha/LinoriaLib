@@ -1216,7 +1216,7 @@ do
 		local Container = self.Container;
 
 		Info.Default = Info.Default or "...";
-		Info.Mode = Info.Mode or "Always"; -- normal default is toggle
+		Info.Mode = Info.Mode or "Toggle"; -- normal default is toggle
 		if (Info.Modes and not table.find(Info.Modes, Info.Mode)) then
 			Info.Mode = Info.Modes[1] or "Toggle"; -- ??
 		end;
