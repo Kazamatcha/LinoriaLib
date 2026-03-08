@@ -3803,15 +3803,15 @@ function Library:CreateWindow(...)
 	    ImageColor3 = Library.AccentColor, 
 	    ScaleType = Enum.ScaleType.Slice, 
 	    SliceCenter = Rect.new(24, 24, 252, 252), 
-	    Size = UDim2.new(1, 32, 1, 34), 
-	    Position = UDim2.new(0, -16, 0, -18), 
+	    Size = UDim2.new(1, 31, 1, 31), 
+	    Position = UDim2.new(0, -16, 0, -16), 
 	    ZIndex = 0,  
 	    Parent = Outer,
 	});
 	
 	-- Registry để update màu glow theo AccentColor động
 	Library:AddToRegistry(GlowImage, {
-	    ImageColor3 = 'AccentColor',  -- Bind với Library.AccentColor
+	    ImageColor3 = 'AccentColor',  
 	});
 	Library:AddToRegistry(Inner, {
 		BackgroundColor3 = 'MainColor';
