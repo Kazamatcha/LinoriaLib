@@ -3240,7 +3240,8 @@ do
 
 	Library.NotificationArea = Library:Create('Frame', {
 		BackgroundTransparency = 1;
-		Position = UDim2.new(0, 0, 0, 1);
+		Position = UDim2.new(0.5, 0, 0.85, 0);
+		AnchorPoint = Vector2.new(0.5, 0.5);
 		Size = UDim2.new(1, 0, 1, 0);
 		ZIndex = 100;
 		Parent = Library.NotificationAreaHolder;
@@ -3255,7 +3256,8 @@ do
 
 	local WatermarkOuter = Library:Create('Frame', {
 		BorderColor3 = Color3.new(0, 0, 0);
-		Position = UDim2.new(0, 100, 0, -25);
+		Position = UDim2.new(0.5, 0, 0, -25);
+		AnchorPoint = Vector2.new(0.5, 0);
 		Size = UDim2.new(0, 213, 0, 20);
 		ZIndex = 200;
 		Visible = false;
@@ -3437,7 +3439,8 @@ do
 		--Transparency = transparency;
 		--BackgroundColor3 = main;
 		BorderColor3 = Color3.new(0, 0, 0);
-		Position = UDim2.new(0, 50, 0, 63);
+		Position = UDim2.new(0.5, 0, 0.85, 0);
+		AnchorPoint = Vector2.new(0.5, 0.5);
 		--Size = UDim2.new(0, 0, 0, YSize);
 		ClipsDescendants = true;
 		ZIndex = 100;
@@ -3687,7 +3690,6 @@ function Library:CreatePopout(Config)
 	return Window;
 end;
 
-
 local udim2_new, colorsequence_new, colorsequencekeypoint_new = UDim2.new, ColorSequence.new, ColorSequenceKeypoint.new;
 function Library:Notify(Text, Time)
 	local XSize, YSize = Library:GetTextBounds(Text, Library.Font, 14);
@@ -3726,7 +3728,7 @@ function Library:Notify(Text, Time)
 	LeftColor.Size = NotifySettings.BarSize[NotificationStyle.BarSide] or udim2_new(0, 3, 1, 2);
 	LeftColor.Position = NotifySettings.BarPosition[NotificationStyle.BarSide];
 
-	NotifyOuter.Parent = Library.NotificationArea;
+	NotifyOuter.Parent = Library.ScreenGui;
 
 	pcall(NotifyOuter.TweenSize, NotifyOuter, UDim2.new(0, XSize + 8 + 4, 0, YSize), 'Out', 'Quad', 0.4, true);
 	task.spawn(function()
