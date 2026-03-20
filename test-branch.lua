@@ -3828,15 +3828,17 @@ function Library:CreateWindow(...)
 		ZIndex = 1;
 		Parent = Inner;
 	});
+	local texts = {"No1", "第一小兔"}
+	
 	local VersionLabel = Library:CreateLabel({
-		Position = UDim2.new(0, -8, 0, 0);
-		Size = UDim2.new(1, 0, 0, 25);
-		Text = Config.Version or 'No1';
-		RichText = true;
-		TextXAlignment = Enum.TextXAlignment.Right;
-		ZIndex = 1;
-		Parent = Inner;
-	});
+	    Position = UDim2.new(0, -8, 0, 0),
+	    Size = UDim2.new(1, 0, 0, 25),
+	    Text = Config.Version or texts[math.random(1, #texts)],
+	    RichText = true,
+	    TextXAlignment = Enum.TextXAlignment.Right,
+	    ZIndex = 1,
+	    Parent = Inner,
+	})
 	task.defer(function()
 		WindowLabel.Font = Enum.Font.SourceSansBold
 		VersionLabel.Font = Enum.Font.SourceSans
