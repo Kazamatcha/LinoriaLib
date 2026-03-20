@@ -3831,7 +3831,7 @@ function Library:CreateWindow(...)
 	local VersionLabel = Library:CreateLabel({
 		Position = UDim2.new(0, -8, 0, 0);
 		Size = UDim2.new(1, 0, 0, 25);
-		Text = Config.Version or 'Premium';
+		Text = Config.Version or 'No1';
 		RichText = true;
 		TextXAlignment = Enum.TextXAlignment.Right;
 		ZIndex = 1;
