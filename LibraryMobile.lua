@@ -6208,7 +6208,24 @@ do
         ZIndex = 202;
         Parent = WatermarkInner;
     })
-
+	local Logo = Library:Create('ImageLabel', {
+		Image = "rbxassetid://136337197618176";
+		BackgroundTransparency = 1;
+		
+		Size = UDim2.new(0, 50, 0, 50); -- bạn có thể đổi 50 thành 70 nếu muốn to hơn
+		Position = UDim2.new(1, -168, 0.5, -10); -- nằm bên phải
+		AnchorPoint = Vector2.new(0.5, 0.5);
+	
+		Rotation = 15; -- độ nghiêng (có thể chỉnh 10–30 tùy thích)
+	
+		ImageColor3 = Library.AccentColor; -- màu bạn yêu cầu
+		
+		ZIndex = 204;
+		Parent = InnerFrame;
+	});
+	Library:AddToRegistry(Logo, {
+		ImageColor3 = 'AccentColor';
+	});
     local Gradient = Library:Create("UIGradient", {
         Color = ColorSequence.new({
             ColorSequenceKeypoint.new(0, Library:GetDarkerColor(Library.MainColor)),
