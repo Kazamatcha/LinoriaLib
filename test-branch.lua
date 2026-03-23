@@ -3326,10 +3326,10 @@ do
 		
 		ZIndex = 204;
 		Parent = InnerFrame;
-	});]]
+	});
 	Library:AddToRegistry(Logo, {
 		ImageColor3 = 'AccentColor';
-	});
+	});]]
 	Library.Watermark = WatermarkOuter;
 	Library.WatermarkText = WatermarkLabel;
 	Library:MakeDraggable(Library.Watermark);
