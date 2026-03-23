@@ -6208,7 +6208,7 @@ do
         ZIndex = 202;
         Parent = WatermarkInner;
     })
-	local Logo = Library:Create('ImageLabel', {
+	--[[local Logo = Library:Create('ImageLabel', {
 		Image = "rbxassetid://136337197618176";
 		BackgroundTransparency = 1;
 		
@@ -6225,7 +6225,7 @@ do
 	});
 	Library:AddToRegistry(Logo, {
 		ImageColor3 = 'AccentColor';
-	});
+	});]]
     local Gradient = Library:Create("UIGradient", {
         Color = ColorSequence.new({
             ColorSequenceKeypoint.new(0, Library:GetDarkerColor(Library.MainColor)),
