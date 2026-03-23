@@ -3312,7 +3312,7 @@ do
 		ZIndex = 203;
 		Parent = InnerFrame;
 	});
-	local Logo = Library:Create('ImageLabel', {
+	--[[local Logo = Library:Create('ImageLabel', {
 		Image = "rbxassetid://136337197618176";
 		BackgroundTransparency = 1;
 		
@@ -3326,7 +3326,7 @@ do
 		
 		ZIndex = 204;
 		Parent = InnerFrame;
-	});
+	});]]
 	Library:AddToRegistry(Logo, {
 		ImageColor3 = 'AccentColor';
 	});
